@@ -1,5 +1,8 @@
 <div class="container">
-  <app-dashboard></app-dashboard>
+  <app-dashboard
+    (serverCreated)="onAddServer($event)"
+    (blueprintCreated)="onAddBlueprint($event)"
+  ></app-dashboard>
 
   <hr />
 
