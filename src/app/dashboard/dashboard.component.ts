@@ -6,12 +6,12 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  @Output() serverCreated = new EventEmitter<{
+  @Output('serverCreated') serverCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
   }>();
 
-  @Output() blueprintCreated = new EventEmitter<{
+  @Output('blueprintCreated') blueprintCreated = new EventEmitter<{
     serverName: string;
     serverContent: string;
   }>();
