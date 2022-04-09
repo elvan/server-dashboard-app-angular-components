@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,27 +23,24 @@ export class DashboardComponent implements OnInit {
     serverContent: string;
   }>();
 
-  newServerName = '';
-  newServerContent = '';
+  @ViewChild('serverContentInput', { static: true })
+  serverContentInput?: ElementRef;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  onAddServer(serverName: HTMLInputElement, serverContent: HTMLInputElement) {
+  onAddServer(serverName: HTMLInputElement) {
     this.serverCreated.emit({
       serverName: serverName.value,
-      serverContent: serverContent.value,
+      serverContent: this.serverContentInput?.nativeElement.value,
     });
   }
 
-  onAddBlueprint(
-    serverName: HTMLInputElement,
-    serverContent: HTMLInputElement
-  ) {
+  onAddBlueprint(serverName: HTMLInputElement) {
     this.blueprintCreated.emit({
       serverName: serverName.value,
-      serverContent: serverContent.value,
+      serverContent: this.serverContentInput?.nativeElement.value,
     });
   }
 }

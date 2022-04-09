@@ -6,21 +6,15 @@
     <input #serverName type="text" class="form-control" required />
 
     <label>Server Content</label>
-    <input #serverContent type="text" class="form-control" required />
+    <input #serverContentInput type="text" class="form-control" required />
 
     <br />
 
     <div class="btn-toolbar">
-      <button
-        class="btn btn-primary"
-        (click)="onAddServer(serverName, serverContent)"
-      >
+      <button class="btn btn-primary" (click)="onAddServer(serverName)">
         Add Server
       </button>
-      <button
-        class="btn btn-primary"
-        (click)="onAddBlueprint(serverName, serverContent)"
-      >
+      <button class="btn btn-primary" (click)="onAddBlueprint(serverName)">
         Add Server Blueprint
       </button>
     </div>
