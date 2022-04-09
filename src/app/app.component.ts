@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  serverElements: any = [
+  serverElements: any[] = [
     {
       type: 'server',
       name: 'TestServer1',
@@ -28,5 +28,17 @@ export class AppComponent {
       name: serverData.serverName,
       content: serverData.serverContent,
     });
+  }
+
+  onChangeFirst() {
+    if (this.serverElements.length > 0) {
+      this.serverElements[0].name = 'Changed!';
+    }
+  }
+
+  onDestroyFirst() {
+    if (this.serverElements.length > 0) {
+      this.serverElements.splice(0, 1);
+    }
   }
 }
