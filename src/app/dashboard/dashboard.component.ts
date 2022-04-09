@@ -23,17 +23,20 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onAddServer() {
+  onAddServer(serverName: HTMLInputElement, serverContent: HTMLInputElement) {
     this.serverCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent,
+      serverName: serverName.value,
+      serverContent: serverContent.value,
     });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(
+    serverName: HTMLInputElement,
+    serverContent: HTMLInputElement
+  ) {
     this.blueprintCreated.emit({
-      serverName: this.newServerName,
-      serverContent: this.newServerContent,
+      serverName: serverName.value,
+      serverContent: serverContent.value,
     });
   }
 }
